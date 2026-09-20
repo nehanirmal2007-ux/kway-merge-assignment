@@ -1,0 +1,24 @@
+================  PAIRWISE MERGING APPROACH  ================
+
+L1                           : [10, 30, 50, 70]
+L2                           : [20, 40, 60, 80]
+L3                           : [15, 35, 55, 75]
+
+---- Pass 1: merge L1 and L2 -> M1 ----
+M1 = merge(L1,L2)            : [10, 20, 30, 40, 50, 60, 70, 80]
+  Comparisons in pass 1 : 7
+  Copy operations pass 1: 8
+
+---- Pass 2: merge M1 and L3 -> FINAL ----
+FINAL = merge(M1,L3)         : [10, 15, 20, 30, 35, 40, 50, 55, 60, 70, 75, 80]
+  Comparisons in pass 2 : 11
+  Copy operations pass 2: 12
+
+================  RESULT  ================
+Merged sorted output         : [10, 15, 20, 30, 35, 40, 50, 55, 60, 70, 75, 80]
+
+================  STATISTICS  ================
+Total elements merged       : 12
+Total comparisons (all passes): 18
+Total copy operations         : 20
+Number of merge passes        : 2 (since 3 lists)

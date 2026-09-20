@@ -1,0 +1,82 @@
+================  K-WAY MERGE USING MIN HEAP  ================
+
+Input lists:
+  L1 = 10 30 50 70 
+  L2 = 20 40 60 80 
+  L3 = 15 35 55 75 
+
+---- Building initial heap (1 element from each list) ----
+Insert L1[0]=10              : [(v=10,L1)]
+Insert L2[0]=20              : [(v=10,L1), (v=20,L2)]
+Insert L3[0]=15              : [(v=10,L1), (v=20,L2), (v=15,L3)]
+Initial heap built           : [(v=10,L1), (v=20,L2), (v=15,L3)]
+
+---- Extract-min / insert-next cycle ----
+
+Step 1: extracted min = 10 (from L1)
+  Heap after extraction      : [(v=15,L3), (v=20,L2)]
+  Insert next L1[1]=30
+  Heap after insertion       : [(v=15,L3), (v=20,L2), (v=30,L1)]
+
+Step 2: extracted min = 15 (from L3)
+  Heap after extraction      : [(v=20,L2), (v=30,L1)]
+  Insert next L3[1]=35
+  Heap after insertion       : [(v=20,L2), (v=30,L1), (v=35,L3)]
+
+Step 3: extracted min = 20 (from L2)
+  Heap after extraction      : [(v=30,L1), (v=35,L3)]
+  Insert next L2[1]=40
+  Heap after insertion       : [(v=30,L1), (v=35,L3), (v=40,L2)]
+
+Step 4: extracted min = 30 (from L1)
+  Heap after extraction      : [(v=35,L3), (v=40,L2)]
+  Insert next L1[2]=50
+  Heap after insertion       : [(v=35,L3), (v=40,L2), (v=50,L1)]
+
+Step 5: extracted min = 35 (from L3)
+  Heap after extraction      : [(v=40,L2), (v=50,L1)]
+  Insert next L3[2]=55
+  Heap after insertion       : [(v=40,L2), (v=50,L1), (v=55,L3)]
+
+Step 6: extracted min = 40 (from L2)
+  Heap after extraction      : [(v=50,L1), (v=55,L3)]
+  Insert next L2[2]=60
+  Heap after insertion       : [(v=50,L1), (v=55,L3), (v=60,L2)]
+
+Step 7: extracted min = 50 (from L1)
+  Heap after extraction      : [(v=55,L3), (v=60,L2)]
+  Insert next L1[3]=70
+  Heap after insertion       : [(v=55,L3), (v=60,L2), (v=70,L1)]
+
+Step 8: extracted min = 55 (from L3)
+  Heap after extraction      : [(v=60,L2), (v=70,L1)]
+  Insert next L3[3]=75
+  Heap after insertion       : [(v=60,L2), (v=70,L1), (v=75,L3)]
+
+Step 9: extracted min = 60 (from L2)
+  Heap after extraction      : [(v=70,L1), (v=75,L3)]
+  Insert next L2[3]=80
+  Heap after insertion       : [(v=70,L1), (v=75,L3), (v=80,L2)]
+
+Step 10: extracted min = 70 (from L1)
+  Heap after extraction      : [(v=75,L3), (v=80,L2)]
+  List L1 is exhausted - nothing to insert
+
+Step 11: extracted min = 75 (from L3)
+  Heap after extraction      : [(v=80,L2)]
+  List L3 is exhausted - nothing to insert
+
+Step 12: extracted min = 80 (from L2)
+  Heap after extraction      : []
+  List L2 is exhausted - nothing to insert
+
+================  RESULT  ================
+Merged sorted output (12 elements):
+  10, 15, 20, 30, 35, 40, 50, 55, 60, 70, 75, 80
+
+================  STATISTICS  ================
+Total elements merged      : 12
+Max heap size used         : 3 (== K)
+Total comparisons          : 21
+Total heap swap operations : 9
+Total heap ops (ins+ext)   : 15
